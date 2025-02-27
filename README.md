@@ -28,6 +28,7 @@ Automated deployment of Ubuntu virtual machines using Terraform on KVM. This pro
 3. Execute the deployment script:
 
    ```sh
+   cd ./bin
    python3 ./bin/deploy.py
    ```
 
@@ -40,4 +41,4 @@ Automated deployment of Ubuntu virtual machines using Terraform on KVM. This pro
    make delete
    ```
 
->>>>>>> 518161f (First upload)
+
