@@ -1,0 +1,2 @@
+hostname,ip,username,password,disk-size
+vm-1,192.168.122.160,ubuntu,password,10
