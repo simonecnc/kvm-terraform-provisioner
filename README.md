@@ -29,7 +29,7 @@ Automated deployment of Ubuntu virtual machines using Terraform on KVM. This pro
 
    ```sh
    cd ./bin
-   python3 ./bin/deploy.py
+   python3 ./deploy.py
    ```
 
    All configurations will be stored within the `VMs` directory.
