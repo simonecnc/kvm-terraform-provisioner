@@ -1,2 +1,4 @@
 hostname,ip,username,password,disk-size
-vm-1,192.168.122.160,ubuntu,password,10
+vm-1,192.168.122.201,ubuntu,password,20,1024
+vm-2,192.168.122.202,ubuntu,password,10,2048
+vm-3,192.168.122.203,ubuntu,password,10,2048

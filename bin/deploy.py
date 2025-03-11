@@ -17,11 +17,11 @@ with open(csv_file, newline='') as file:
     next(reader)  # Skip the header
     
     for row in reader:
-        if len(row) < 5:
+        if len(row) < 6:
             print(f"Row ignored, insufficient data: {row}")
             continue
         
-        campo1, campo2, campo3, campo4, campo5 = row[:5]
+        campo1, campo2, campo3, campo4, campo5, campo6 = row[:6]
         
         # Run the create_vm.sh command with the parameters
-        subprocess.run(["./create_vm.sh", campo1, campo2, campo3, campo4, campo5])
+        subprocess.run(["./create_vm.sh", campo1, campo2, campo3, campo4, campo5, campo6])

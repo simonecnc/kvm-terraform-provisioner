@@ -2,8 +2,8 @@
 
 
 # Check parameters
-if [ "$#" -ne 5 ]; then
-    echo "Uso: $0 <hostname> <ip> <username> <password> <disk-size>"
+if [ "$#" -ne 6 ]; then
+    echo "Uso: $0 <hostname> <ip> <username> <password> <disk-size> <memorymb>"
     exit 1
 fi
 
@@ -13,6 +13,7 @@ IP=$2
 USERNAME=$3
 PASSWORD=$4
 DISK_SIZE=$5
+RAM=$6
 
 # File path
 BASE_PATH="../template/ubuntu-server"
@@ -29,6 +30,7 @@ echo "IP: $IP"
 echo "Username: $USERNAME"
 echo "Password: $PASSWORD"
 echo "Disk size: $DISK_SIZE"
+echo "Ram: $RAM"
 echo "-------------------------"
 
 # Creating the directory and copying the files
@@ -45,6 +47,7 @@ sed -i "s/^ip=\"\"/ip=\"$IP\"/" "$TFVARS_FILE"
 sed -i "s/^username=\"\"/username=\"$USERNAME\"/" "$TFVARS_FILE"
 sed -i "s/^password=\"\"/password=\"$PASSWORD\"/" "$TFVARS_FILE"
 sed -i "s/^disk-size=/disk-size=$DISK_SIZE/" "$TFVARS_FILE"
+sed -i "s/^memoryMB=/memoryMB=$RAM/" "$TFVARS_FILE"
 
 echo "Contents of $TFVARS_FILE after modification:"
 cat "$TFVARS_FILE"
@@ -56,6 +59,7 @@ sed -i "s/^IP := .*/IP := $IP/" "$MAKEFILE"
 sed -i "s/^USERNAME := .*/USERNAME := $USERNAME/" "$MAKEFILE"
 sed -i "s/^PASSWORD := .*/PASSWORD := $PASSWORD/" "$MAKEFILE"
 sed -i "s/^DISK-SIZE := .*/DISK-SIZE := $DISK_SIZE/" "$MAKEFILE"
+#sed -i "s/^MEMORYMB := .*/MEMORYMB := $RAM/" "$MAKEFILE"
 
 echo "Setup completed successfully!"
 
